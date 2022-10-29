@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
+@layer components {
+  .navbar div a svg {
+    @apply text-[#EFEEE0] h-[18px] w-[18px];
+  }
+  .navbar div a.active svg {
+    @apply text-[#FACD66];
+  }
+
+  .chart {
+    @apply relative w-screen md:w-[417px] h-[233px] md:h-[96px] md:mb-[12px] bg-[#1A1E1F] rounded-[20px] md:flex md:justify-between md:items-center p-[17px];
+  }
+  .chart img {
+    @apply h-[99px] w-[108px] md:h-[63px] md:w-[63px];
+  }
+  .chart .label {
+    @apply flex-1 md:ml-[14px];
+  }
+  .chart .label .title {
+    @apply mt-[15px] md:mt-0 text-[17px];
+  }
+  .chart .label .author {
+    @apply mt-[6px] md:mt-[4px] mb-[4px] text-[12px] text-white/50;
+  }
+  .chart .label .duration {
+    @apply mt-[24px] md:mt-0 text-[14px] md:text-[12px];
+  }
+  .chart .like {
+    @apply absolute top-[15px] right-[15px] border-[1px] border-[#FACD66] h-[37px] w-[37px] rounded-full grid place-items-center;
+  }
+  .chart .regheart {
+    @apply text-[#FACD66] w-[17px] h-[17px] md:w-[14px] md:h-[14px];
+  }
+  .chart .heart {
+    @apply text-[#FACD66]  w-[17px] h-[17px] md:w-[14px] md:h-[14px];
+  }
+}
+.player {
+  filter: drop-shadow(0px -25px 100px rgba(16, 16, 16, 0.51));
+}
+
+.art {
+  transform-origin: center;
+  transform: rotate(-4deg);
+}
+
+.fadeout {
+  opacity: 0;
+  animation: fadeout 1s linear forwards;
+}
+@keyframes fadeout {
+  to {
+    opacity: 1;
+  }
+}
+
+.gradient {
+  background: linear-gradient(to top, black 40%, transparent);
+}
+
+.listgrid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 350px));
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgb(206, 203, 203);
+  border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 13px;
+  width: 13px;
+  border-radius: 100%;
+  margin-top: -5px;
+  background: #facd66;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
