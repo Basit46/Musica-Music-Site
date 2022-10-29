@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { IoIosShuffle } from "react-icons/io";
 import { GiPreviousButton, GiNextButton, GiSpeaker } from "react-icons/gi";
 import { FaPlay, FaPause } from "react-icons/fa";

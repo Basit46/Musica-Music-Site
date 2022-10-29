@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlay, FaTrash } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Collected = ({ collected }) => {

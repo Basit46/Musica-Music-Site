@@ -16,7 +16,7 @@ const ChartContainer = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  }, [setCharts]);
+  }, [setCharts, addChartsToSongs]);
   return (
     <div className="h-full w-full md:w-fit">
       <h1 className="mb-[16px] md:mb-[14px] mt-[47px] md:mt-0 text-[#EFEEE0] text-[24px] font-[700]">

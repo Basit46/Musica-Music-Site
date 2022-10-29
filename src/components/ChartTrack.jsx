@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { db } from "../firebase";
 import { useAuthContext } from "../context/authContext";
@@ -12,17 +12,21 @@ const ChartTrack = ({ charttrack, index }) => {
 
   const [like, setLike] = useState(false);
 
+  const updatingCollection = useCallback(() => {
+    updateDoc(doc(db, "users", user), {
+      likes: arrayUnion({
+        id: charttrack.id,
+        title: charttrack.title,
+        cover: charttrack.cover,
+      }),
+    });
+  }, [charttrack, user]);
+
   useEffect(() => {
     if (like) {
-      updateDoc(doc(db, "users", user), {
-        likes: arrayUnion({
-          id: charttrack.id,
-          title: charttrack.title,
-          cover: charttrack.cover,
-        }),
-      });
+      updatingCollection();
     }
-  }, [like]);
+  }, [like, updatingCollection]);
 
   const handleClick = async () => {
     await setSongs([...chartToBeViewed.files]);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import playall from "../Images/playall.png";
 import addtocol from "../Images/addtocol.png";
 import love from "../Images/love.png";
@@ -23,14 +23,15 @@ const ViewChart = () => {
     getChartToBeViewed(chartId);
   }, [chartId, getChartToBeViewed]);
 
-  useEffect(() => {
-    handlePlayPlaylist();
-  }, [chartToBeViewed]);
-
-  const handlePlayPlaylist = async () => {
+  const handlePlayPlaylist = useCallback(async () => {
     await setSongs([...chartToBeViewed.files]);
     setCurrentSong(songs[0]);
-  };
+  }, [chartToBeViewed, setCurrentSong, setSongs, songs]);
+
+  useEffect(() => {
+    handlePlayPlaylist();
+  }, [chartToBeViewed, handlePlayPlaylist]);
+
   return (
     <div className="fadeout relative h-full w-full overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
