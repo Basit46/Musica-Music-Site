@@ -25,7 +25,7 @@ const Navbar = () => {
     <div
       className={`navbar absolute ${
         openMenu ? "left-0" : "left-[-100%]"
-      }  duration-200 bg-main w-screen md:left-0 top-0 h-full md:w-[7%] flex flex-col md:items-center justify-start`}
+      }  duration-200 b-main md:bg-transparent w-screen md:left-0 top-0 h-full md:w-[7%] flex flex-col md:items-center justify-start`}
     >
       <div className="hidden md:block mt-[20px]">{logoSvg}</div>
       <div className="w-full md:w-fit mt-[70px] md:mt-[40px] mb-[20px] py-[26px] px-[17px] space-y-[39px] bg-[#1A1E1F] md:rounded-[32px] text-white">

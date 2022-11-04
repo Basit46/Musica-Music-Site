@@ -4,6 +4,7 @@ import { GiPreviousButton, GiNextButton, GiSpeaker } from "react-icons/gi";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { TbRepeatOnce } from "react-icons/tb";
 import { useSongsContext } from "../context/context";
+import load from "../Images/load.jpg";
 
 const Player = () => {
   const {
@@ -17,6 +18,8 @@ const Player = () => {
     audioRef,
     isOnShuffle,
     setIsOnShuffle,
+    isloading,
+    setIsLoading,
   } = useSongsContext();
 
   const seekRef = useRef();
@@ -85,6 +88,7 @@ const Player = () => {
 
       <div className="w-[50%] md:w-[60%] flex flex-col items-center ">
         <audio
+          onCanPlayThrough={() => setIsLoading(false)}
           onTimeUpdate={setSeek}
           ref={audioRef}
           src={currentSong?.audio}
@@ -102,8 +106,17 @@ const Player = () => {
             className="w-[30px] h-[30px] md:w-auto md:h-auto"
           />
           <div className="h-[40px] w-[40px] md:h-[25px] md:w-[25px] rounded-full bg-[#FACD66] grid place-items-center">
-            {!isPlaying && <FaPlay onClick={() => setIsPlaying(true)} />}
-            {isPlaying && <FaPause onClick={() => setIsPlaying(false)} />}
+            <div className={isloading ? "hidden" : "block"}>
+              {!isPlaying && <FaPlay onClick={() => setIsPlaying(true)} />}
+              {isPlaying && <FaPause onClick={() => setIsPlaying(false)} />}
+            </div>
+            <div className={isloading ? "block" : "hidden"}>
+              <img
+                className="loader h-[40px] w-[40px] md:h-[25px] md:w-[25px] rounded-full"
+                src={load}
+                alt="loader"
+              />
+            </div>
           </div>
           <GiNextButton
             onClick={setNextSong}

@@ -1,11 +1,15 @@
 import React from "react";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Collected = ({ collected }) => {
+const Collected = ({ collected, handleDelete }) => {
   const navigate = useNavigate();
   return (
     <div className="relative w-full md:w-[213px] h-[234px] group overflow-hidden rounded-[20px] mr-[20px] mb-[20px] ">
+      <FaTrash
+        onClick={() => handleDelete(collected.id)}
+        className="absolute top-[15px] right-[20px] z-[100] text-red-600 group-hover:scale-[1.2]"
+      />
       <img
         className="group-hover:scale-[1.2] object-cover duration-200 h-full w-full"
         src={collected.img}

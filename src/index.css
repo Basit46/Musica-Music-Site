@@ -91,3 +91,13 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
 }
+
+.loader {
+  animation: rotate infinite 1s linear forwards;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

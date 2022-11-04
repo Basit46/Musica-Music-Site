@@ -1,4 +1,10 @@
-import React, { useState, createContext, useContext, useRef } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useRef,
+  useCallback,
+} from "react";
 
 const songsContext = createContext();
 
@@ -8,6 +14,7 @@ const OurProvider = ({ children }) => {
   const searchInputRef = useRef(); //The state of the input of the search bar
   const [openMenu, setOpenMenu] = useState(false); //To close and open menu
 
+  const [isloading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false); //to know if a song is playing or not
   const [repeatSong, setRepeatSong] = useState(false); //to know if to repeat a song if it has finished
   const [isOnShuffle, setIsOnShuffle] = useState(false); //to know if shuffle is on
@@ -61,6 +68,7 @@ const OurProvider = ({ children }) => {
     await setSongs(songsClone);
     await setIsPlaying(false);
     await setCurrentSong(songs.find((song) => song.id === id));
+    setIsLoading(true);
     setIsPlaying(true);
   };
 
@@ -68,18 +76,22 @@ const OurProvider = ({ children }) => {
   const getNextSong = (id) => {
     if (isOnShuffle) {
       shufflesong();
+      setIsLoading(true);
     } else {
       const songIndex = songs.findIndex((song) => song.id === id);
       const nextSongIndex = songIndex + 1;
       if (repeatSong) {
         setCurrentSong(songs[songIndex]);
+        setIsLoading(true);
         audioRef.current.currentTime = 0;
         audioRef.current.play();
       } else {
         if (nextSongIndex > songs.length - 1) {
           setCurrentSong(songs[0]);
+          setIsLoading(true);
         } else {
           setCurrentSong(songs[nextSongIndex]);
+          setIsLoading(true);
         }
       }
     }
@@ -91,13 +103,16 @@ const OurProvider = ({ children }) => {
     const prevSongIndex = songIndex - 1;
     if (repeatSong) {
       setCurrentSong(songs[songIndex]);
+      setIsLoading(true);
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     } else {
       if (prevSongIndex < 0) {
         setCurrentSong(songs[songs.length - 1]);
+        setIsLoading(true);
       } else {
         setCurrentSong(songs[prevSongIndex]);
+        setIsLoading(true);
       }
     }
   };
@@ -121,13 +136,18 @@ const OurProvider = ({ children }) => {
   };
 
   //This function returns the chart we are going to view in the viewchart
-  const getChartToBeViewed = (id) => {
-    setChartToBeViewed(charts.find((chart) => chart.id === id));
-  };
+  const getChartToBeViewed = useCallback(
+    (id) => {
+      setChartToBeViewed(charts.find((chart) => chart.id === id));
+    },
+    [charts, setChartToBeViewed]
+  );
 
   return (
     <songsContext.Provider
       value={{
+        isloading,
+        setIsLoading,
         openMenu,
         setOpenMenu,
         addSongsToList,
