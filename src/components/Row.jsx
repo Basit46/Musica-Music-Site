@@ -12,7 +12,7 @@ const Row = ({ title, url }) => {
 
   useEffect(() => {
     axios
-      .get(`https://musica-api.up.railway.app/${url}`)
+      .get(`https://musica-api.onrender.com/${url}`)
       .then((response) => {
         setreturnedSongs(response.data);
       })

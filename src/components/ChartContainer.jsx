@@ -8,7 +8,7 @@ const ChartContainer = () => {
 
   useEffect(() => {
     axios
-      .get("https://musica-api.up.railway.app/playlist")
+      .get("https://musica-api.onrender.com/playlist")
       .then((res) => {
         setCharts(res.data);
         addChartsToSongs(res.data);
