@@ -7,7 +7,7 @@ const Collections = () => {
 
   const [onCollection, setOnCollection] = useState(true);
   return (
-    <div className="fadeout px-[24px] md:pl-[8%] pt-[75px] pb-[130px] h-full w-full overflow-y-scroll">
+    <div className="fadeout px-[24px] md:pl-[8%] pt-[75px] pb-[130px] h-screen w-full bg-main">
       <div className="flex items-center space-x-[10px] w-full md:w-fit">
         <div
           onClick={() => {
