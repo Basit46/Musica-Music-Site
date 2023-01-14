@@ -14,7 +14,7 @@ const SearchBar = () => {
     return;
   } else {
     return (
-      <div className="w-[100%] md:w-[93%] absolute top-0 left-0 md:left-[7%] h-fit bg-main flex items-center">
+      <div className="w-[100%] md:w-[93%] fixed top-0 left-0 md:left-[7%] h-fit bg-main flex items-center">
         <div className="md:hidden w-[30%] md:w-[0%] mt-2 pl-[17px] md:pl-[0px] flex items-center">
           <div
             onClick={() => setOpenMenu((prev) => !prev)}

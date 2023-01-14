@@ -5,6 +5,9 @@
 * {
   font-family: "Quicksand", sans-serif;
 }
+html {
+  overflow-x: hidden;
+}
 
 @layer components {
   .navbar div a svg {

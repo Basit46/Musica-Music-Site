@@ -71,7 +71,7 @@ const Player = () => {
   };
 
   return (
-    <div className="player flex justify-around items-center md:items-start md:pt-[33.33px] absolute bottom-0 left-0 w-full h-[125px] backdrop-blur-[60px] border-t-[2px] border-white ">
+    <div className="player flex justify-around items-center md:items-start md:pt-[33.33px] fixed bottom-0 left-0 w-full h-[125px] backdrop-blur-[60px] border-t-[2px] border-white ">
       <div className="flex items-center pl-[30px] md:pl-[0px] w-[50%] md:w-[15%]">
         <img
           className="w-[57px] h-[57px] md:w-[49px] md:h-[49px] rounded-[14px] mr-[13px]"

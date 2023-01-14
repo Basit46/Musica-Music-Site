@@ -23,7 +23,7 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`navbar absolute ${
+      className={`navbar fixed ${
         openMenu ? "left-0" : "left-[-100%]"
       }  duration-200 b-main md:bg-transparent w-screen md:left-0 top-0 h-full md:w-[7%] flex flex-col md:items-center justify-start`}
     >

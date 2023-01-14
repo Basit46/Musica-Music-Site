@@ -5,7 +5,7 @@ import SearchBar from "./components/SearchBar";
 import Router from "./components/Router";
 function App() {
   return (
-    <div className="relative h-screen  w-screen bg-main ">
+    <div className="relative h-screen w-screen bg-main  ">
       <div className="relative h-full w-full">
         <Router />
         <Navbar />

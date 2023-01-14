@@ -14,7 +14,7 @@ import RequireAuth from "../page-protection/RequireAuth";
 
 const Router = () => {
   return (
-    <div className="relative bg-none w-full h-full text-white">
+    <div className="relative bg-none w-full h-fit text-white overflow-hidden">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/viewchart/:chartId" element={<ViewChart />} />

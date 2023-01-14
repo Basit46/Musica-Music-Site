@@ -7,7 +7,7 @@ import ChartContainer from "../components/ChartContainer";
 
 const Home = () => {
   return (
-    <div className="fadeout px-[24px] md:pl-[8%] pt-[75px] md:pr-[59px] pb-[130px] h-full w-full overflow-y-scroll">
+    <div className="fadeout px-[24px] md:pl-[8%] pt-[75px] md:pr-[59px] pb-[130px] h-fit w-full">
       <div className="h-fit md:h-[373px] w-full md:flex justify-between items-center">
         <div className="relative w-full md:w-[686px] h-full bg-[#609EAF] rounded-[20px] md:rounded-[40px] overflow-hidden">
           <img
